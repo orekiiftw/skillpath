@@ -7,17 +7,20 @@ then renders a responsive grid of course cards.
 ## Files
 
 - `SkillpathCourses.tsx` — the Framer code component. Renders the four
-  states (loading, error, empty, success) and the course grid.
+  states (loading, error, empty, success), the course grid, and embeds its
+  own styles as a `<style>` block so Framer needs no separate CSS file.
 - `api.ts` — the two fetch functions. All network code lives here.
 - `price.ts` — turns paise and cents into formatted prices. All currency
   math lives here.
-- `styles.css` — grid, card, skeleton and state styles.
 
 ## Adding it to Framer
 
 1. Create a free Framer project.
-2. Open the Code tab in the Assets panel, create new code files, and paste
-   each file with the same filenames so the imports work.
+2. Open the Code tab in the Assets panel, create **three** new code files,
+   and paste each file with the same filenames so the imports work:
+   `api.ts`, `price.ts`, `SkillpathCourses.tsx`. The styles are embedded
+   inside the component, so no `.css` file is needed (Framer cannot create
+   plain CSS files).
 3. On the canvas, insert a Code Component and pick `SkillpathCourses`.
 4. Select it to see the two property controls: Section title and Accent color.
 
@@ -51,9 +54,9 @@ loading, success and error naturally. To force a state, temporarily edit
 
 ## Local preview and checks (not part of the Framer project)
 
-One `package.json` at the root covers all local tooling. The four
-submission files are `SkillpathCourses.tsx`, `api.ts`, `price.ts` and
-`styles.css`. Everything else at the root is for previewing and checking
+One `package.json` at the root covers all local tooling. The three
+submission files are `SkillpathCourses.tsx`, `api.ts` and `price.ts`.
+Everything else at the root is for previewing and checking
 the component before pasting it into Framer.
 
 ```sh
@@ -64,7 +67,7 @@ npm run typecheck    strict TypeScript check
 
 `framer-stub.ts` stands in for the `framer` import locally, since
 `addPropertyControls` and `ControlType` only exist inside Framer.
-`types.d.ts` declares the `framer` module and CSS imports for TypeScript.
+`types.d.ts` declares the `framer` module for TypeScript.
 
 ## Hero and footer
 

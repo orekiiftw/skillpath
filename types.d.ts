@@ -1,5 +1,3 @@
-declare module "*.css"
-
 declare module "framer" {
   export const ControlType: {
     String: string
